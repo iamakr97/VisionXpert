@@ -1,4 +1,4 @@
-package com.ojectclassify
+package com.vision
 
 import android.app.Application
 import com.facebook.react.PackageList

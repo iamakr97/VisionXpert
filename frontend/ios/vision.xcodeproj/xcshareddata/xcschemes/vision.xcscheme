@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ojectClassify.app"
-               BlueprintName = "ojectClassify"
-               ReferencedContainer = "container:ojectClassify.xcodeproj">
+               BuildableName = "vision.app"
+               BlueprintName = "vision"
+               ReferencedContainer = "container:vision.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ojectClassifyTests.xctest"
-               BlueprintName = "ojectClassifyTests"
-               ReferencedContainer = "container:ojectClassify.xcodeproj">
+               BuildableName = "visionTests.xctest"
+               BlueprintName = "visionTests"
+               ReferencedContainer = "container:vision.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ojectClassify.app"
-            BlueprintName = "ojectClassify"
-            ReferencedContainer = "container:ojectClassify.xcodeproj">
+            BuildableName = "vision.app"
+            BlueprintName = "vision"
+            ReferencedContainer = "container:vision.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ojectClassify.app"
-            BlueprintName = "ojectClassify"
-            ReferencedContainer = "container:ojectClassify.xcodeproj">
+            BuildableName = "vision.app"
+            BlueprintName = "vision"
+            ReferencedContainer = "container:vision.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
