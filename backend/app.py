@@ -12,6 +12,10 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 
 model = tf.keras.applications.MobileNetV2(weights='imagenet')
 
+# Load the fish disease classification model
+fish_classification_model = tf.keras.models.load_model('./models/model2 _RGB.keras')  
+
+
 if not os.path.exists('uploads'):
     os.makedirs('uploads')
 
@@ -53,6 +57,32 @@ def upload_file():
                 "confidence": float(pred[2])
             } for pred in decoded_predictions[0]
         ]
+    }
+
+    return jsonify(result), 200
+
+# Route for fish disease classification
+@app.route('/fish-classification', methods=['POST'])
+def fish_classification():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part in the request"}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "No file selected for uploading"}), 400
+
+    filepath = os.path.join('uploads', file.filename)
+    file.save(filepath)
+
+    img_array = prepare_image(filepath)
+    predictions = fish_classification_model.predict(img_array)
+    predicted_class = np.argmax(predictions, axis=1)[0]
+    confidence = float(np.max(predictions))
+
+    result = {
+        "filename": file.filename,
+        "predicted_class": int(predicted_class),
+        "confidence": confidence
     }
 
     return jsonify(result), 200
