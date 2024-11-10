@@ -42,6 +42,8 @@ const ObjectDetect = () => {
     });
 
     const url = "http://192.168.29.109:5000/upload";
+    // const url = "https://visionxpert.onrender.com/upload"
+
     try {
       const response = await axios.post(url, formData, {
         headers: {

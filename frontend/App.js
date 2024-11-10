@@ -11,11 +11,13 @@ import Feedback from './src/screens/Feedback';
 import ObjectDetection from './src/screens/ObjectDetection';
 import RoseDisease from './src/screens/RoseDisease';
 import FishDisease from './src/screens/FishDisease';
+import BeeClassification from './src/screens/BeeClassification';
 
 // Import custom PNG icons
 import HomeIcon from './src/assets/home.png';
 import HelpIcon from './src/assets/help.png';
 import FeedbackIcon from './src/assets/feedback.png';
+
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -27,6 +29,7 @@ const HomeStack = () => (
     <Stack.Screen name="ObjectDetection" component={ObjectDetection} />
     <Stack.Screen name="RoseDisease" component={RoseDisease} />
     <Stack.Screen name="FishDisease" component={FishDisease} />
+    <Stack.Screen name="BeeClassificaion" component={BeeClassification} />
   </Stack.Navigator>
 );
 

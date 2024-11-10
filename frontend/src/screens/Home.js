@@ -53,10 +53,10 @@ const Home = ({ navigation }) => {
         {/* Placeholder Buttons */}
         <TouchableOpacity
           style={styles.featureButton}
-          onPress={() => alert('This feature will be added soon!')}
+          onPress={() => navigation.navigate('BeeClassificaion')}
         >
-          {/* <Image source={require('../assets/placeholder_icon.png')} style={styles.icon} /> */}
-          <Text style={styles.buttonText}>Example Feature 1</Text>
+          <Image source={require('../assets/beelogo.png')} style={styles.icon} />
+          <Text style={styles.buttonText}>Bee Classification</Text>
         </TouchableOpacity>
 
         <TouchableOpacity

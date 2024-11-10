@@ -41,7 +41,7 @@ const RoseDisease = () => {
       name: 'fish.jpg',
     });
 
-    const url = "http://192.168.29.109:5000/fish-classification";
+    const url = "http://192.168.29.109:5000/rose-disease-classification";
     try {
       const response = await axios.post(url, formData, {
         headers: {
