@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'rea
 
 const Home = ({ navigation }) => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView contentContainerStyle={styles.container} style={{ flex: 1 }}>
       {/* App Header */}
       <View style={styles.header}>
         <Text style={styles.appTitle}>VisionXpert</Text>
@@ -26,54 +26,34 @@ const Home = ({ navigation }) => {
 
       {/* Feature Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.featureButton}
+        <FeatureButton
           onPress={() => navigation.navigate('ObjectDetection')}
-        >
-          <Image source={require('../assets/face-detection.png')} style={styles.icon} />
-          <Text style={styles.buttonText}>Object Detection</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.featureButton}
+          title="Object Detection"
+          imageSource={require('../assets/face-detection.png')}
+        />
+        <FeatureButton
           onPress={() => navigation.navigate('RoseDisease')}
-        >
-          <Image source={require('../assets/rose.png')} style={styles.icon} />
-          <Text style={styles.buttonText}>Rose Disease</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.featureButton}
+          title="Rose Disease"
+          imageSource={require('../assets/rose.png')}
+        />
+        <FeatureButton
           onPress={() => navigation.navigate('FishDisease')}
-        >
-          <Image source={require('../assets/clown-fish.png')} style={styles.icon} />
-          <Text style={styles.buttonText}>Fish Disease</Text>
-        </TouchableOpacity>
-
-        {/* Placeholder Buttons */}
-        <TouchableOpacity
-          style={styles.featureButton}
-          onPress={() => navigation.navigate('BeeClassificaion')}
-        >
-          <Image source={require('../assets/beelogo.png')} style={styles.icon} />
-          <Text style={styles.buttonText}>Bee Classification</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.featureButton}
+          title="Fish Disease"
+          imageSource={require('../assets/clown-fish.png')}
+        />
+        <FeatureButton
+          onPress={() => navigation.navigate('BeeClassification')}
+          title="Bee Classification"
+          imageSource={require('../assets/beelogo.png')}
+        />
+        <FeatureButton
           onPress={() => alert('This feature will be added soon!')}
-        >
-          {/* <Image source={require('../assets/placeholder_icon.png')} style={styles.icon} /> */}
-          <Text style={styles.buttonText}>Example Feature 2</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.featureButton}
+          title="Example Feature 2"
+        />
+        <FeatureButton
           onPress={() => alert('This feature will be added soon!')}
-        >
-          {/* <Image source={require('../assets/placeholder_icon.png')} style={styles.icon} /> */}
-          <Text style={styles.buttonText}>Example Feature 3</Text>
-        </TouchableOpacity>
+          title="Example Feature 3"
+        />
       </View>
 
       {/* App Information Section */}
@@ -87,12 +67,20 @@ const Home = ({ navigation }) => {
   );
 };
 
+// FeatureButton Component
+const FeatureButton = ({ onPress, title, imageSource }) => (
+  <TouchableOpacity style={styles.featureButton} onPress={onPress}>
+    {imageSource && <Image source={imageSource} style={styles.icon} />}
+    <Text style={styles.buttonText}>{title}</Text>
+  </TouchableOpacity>
+);
+
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#e6f7ff', // Soft light blue background
+    backgroundColor: '#f0f8ff', 
   },
   header: {
     marginBottom: 20,
@@ -131,25 +119,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   featureButton: {
-    backgroundColor: 'rgba(0, 123, 255, 0.2)', // Transparent blue for a water-like effect
+    backgroundColor: '#ffffff', 
     width: '45%',
     aspectRatio: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 15,
     marginVertical: 10,
-    padding: 10,
+    padding: 15,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 5,
     elevation: 5,
-    borderColor: '#007bff',
+    borderColor: '#e6e6e6', 
     borderWidth: 1,
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
     marginBottom: 8,
   },
   buttonText: {
