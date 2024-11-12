@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator, Alert } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import axios from 'axios';
+import { SERVER_URL } from '@env'
 
 const BeeClassification = () => {
     const [image, setImage] = useState(null);
@@ -14,7 +15,7 @@ const BeeClassification = () => {
         const result = await launchImageLibrary({ mediaType: 'photo', quality: 1 });
         if (result.assets && result.assets.length > 0) {
             setImage(result.assets[0].uri);
-            setPrediction(''); // Clear previous prediction when new image is selected
+            setPrediction('');
         }
     };
 
@@ -23,7 +24,7 @@ const BeeClassification = () => {
         const result = await launchCamera({ mediaType: 'photo', quality: 1 });
         if (result.assets && result.assets.length > 0) {
             setImage(result.assets[0].uri);
-            setPrediction(''); // Clear previous prediction when new image is selected
+            setPrediction('');
         }
     };
 
@@ -41,7 +42,7 @@ const BeeClassification = () => {
             name: 'bee.jpg',
         });
 
-        const url = "http://192.168.29.109:5000/honeybee-classification";
+        const url = `${SERVER_URL}/honeybee-classification`;
         try {
             const response = await axios.post(url, formData, {
                 headers: {
@@ -49,33 +50,9 @@ const BeeClassification = () => {
                 },
             });
 
-            // Map predicted_class to bee health status
-            let beeHealthStatus;
-            switch (response.data.predicted_class) {
-                case 0:
-                    beeHealthStatus = "Varroa, Small Hive Beetles";
-                    break;
-                case 1:
-                    beeHealthStatus = "Ant problems";
-                    break;
-                case 2:
-                    beeHealthStatus = "Few varroa, hive beetles";
-                    break;
-                case 3:
-                    beeHealthStatus = "Healthy";
-                    break;
-                case 4:
-                    beeHealthStatus = "Hive being robbed";
-                    break;
-                case 5:
-                    beeHealthStatus = "Missing queen";
-                    break;
-                default:
-                    beeHealthStatus = "Unknown Status";
-            }
 
-            // Set the mapped bee health status and confidence
-            setPrediction(beeHealthStatus);
+           
+            setPrediction(response.data.predicted_class_name);
             setConfidence((response.data.confidence * 100).toFixed(2) + '%');
         } catch (error) {
             Alert.alert("Error in Prediction", error.message || 'Something went wrong.');

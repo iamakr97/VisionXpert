@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator, Alert } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import axios from 'axios';
+import { SERVER_URL } from '@env'
 
 const RoseDisease = () => {
   const [image, setImage] = useState(null);
@@ -41,7 +42,7 @@ const RoseDisease = () => {
       name: 'fish.jpg',
     });
 
-    const url = "http://192.168.29.109:5000/rose-disease-classification";
+    const url = `${SERVER_URL}/rose-disease-classification`;
     try {
       const response = await axios.post(url, formData, {
         headers: {

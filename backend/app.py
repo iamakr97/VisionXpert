@@ -20,12 +20,11 @@ rose_classification_model = tf.keras.models.load_model(
 honeybee_classification_model = tf.keras.models.load_model(
     './models/honey_bee.keras')
 
+
 if not os.path.exists('uploads'):
     os.makedirs('uploads')
 
 # Image preprocessing for MobileNetV2 (ImageNet)
-
-
 def prepare_image_for_mobilenet(image_path):
     img = Image.open(image_path)
     img = img.convert('RGB')
@@ -36,8 +35,6 @@ def prepare_image_for_mobilenet(image_path):
     return img_array
 
 # Image preprocessing for custom models
-
-
 def prepare_image(image_path):
     img = Image.open(image_path)
     img = img.convert('RGB')
@@ -47,9 +44,8 @@ def prepare_image(image_path):
     img_array = img_array / 255.0
     return img_array
 
+
 # Object classification route
-
-
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -87,9 +83,8 @@ def upload_file():
 
     return jsonify(result), 200
 
+
 # Route for Rose disease classification
-
-
 @app.route('/rose-disease-classification', methods=['POST'])
 def rose_disease_classification():
     if 'file' not in request.files:
@@ -169,9 +164,9 @@ def honeybee_classification():
 
     return jsonify(result), 200
 
+
+
 # Home route
-
-
 @app.route('/', methods=['GET'])
 def index():
     return "Flask app is running"

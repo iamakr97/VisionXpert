@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator, Alert } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import axios from 'axios';
+import { SERVER_URL } from '@env'
 
-const FishDiseaseClassification = () => {
+const FishDisease = () => {
   const [image, setImage] = useState(null);
   const [prediction, setPrediction] = useState('');
   const [confidence, setConfidence] = useState(null);
@@ -41,7 +42,7 @@ const FishDiseaseClassification = () => {
       name: 'fish.jpg',
     });
 
-    const url = "http://192.168.29.109:5000/fish-classification";
+    const url = `${SERVER_URL}/fish-classification`;
     try {
       const response = await axios.post(url, formData, {
         headers: {
@@ -126,7 +127,7 @@ const FishDiseaseClassification = () => {
   );
 };
 
-export default FishDiseaseClassification;
+export default FishDisease;
 
 const styles = StyleSheet.create({
   container: {

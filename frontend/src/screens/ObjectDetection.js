@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator, Alert } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import axios from 'axios';
+import { SERVER_URL } from '@env'
 
 const ObjectDetect = () => {
   const [image, setImage] = useState(null);
@@ -41,8 +42,7 @@ const ObjectDetect = () => {
       name: 'photo.jpg'
     });
 
-    const url = "http://192.168.29.109:5000/upload";
-    // const url = "https://visionxpert.onrender.com/upload"
+    const url =`${SERVER_URL}/upload`;
 
     try {
       const response = await axios.post(url, formData, {

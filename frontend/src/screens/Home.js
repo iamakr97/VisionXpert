@@ -56,6 +56,15 @@ const Home = ({ navigation }) => {
         />
       </View>
 
+      <View style={styles.upcomingFeaturesSection}>
+        <Text style={styles.upcomingTitle}>Upcoming Features</Text>
+        <Text style={styles.upcomingDescription}>
+          We are constantly updating VisionXpert with new capabilities. Upcoming features include plant disease detection for more species and a wider range of object categories. Stay tuned!
+        </Text>
+      </View>
+
+
+
       {/* App Information Section */}
       <View style={styles.infoSection}>
         <Text style={styles.infoTitle}>About VisionXpert</Text>
@@ -80,7 +89,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#f0f8ff', 
+    backgroundColor: '#f0f8ff',
   },
   header: {
     marginBottom: 20,
@@ -119,7 +128,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   featureButton: {
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#ffffff',
     width: '45%',
     aspectRatio: 1,
     justifyContent: 'center',
@@ -132,7 +141,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 5,
     elevation: 5,
-    borderColor: '#e6e6e6', 
+    borderColor: '#e6e6e6',
     borderWidth: 1,
   },
   icon: {
@@ -165,6 +174,31 @@ const styles = StyleSheet.create({
     color: '#555',
     textAlign: 'center',
   },
+  upcomingFeaturesSection: {
+    marginTop: 30,
+    padding: 20,
+    backgroundColor: '#e8f4ff', 
+    borderTopWidth: 1,
+    borderColor: '#ddd',
+    width: '100%',
+    borderRadius: 10,
+  },
+
+  upcomingTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+
+  upcomingDescription: {
+    fontSize: 15,
+    color: '#555',
+    textAlign: 'center',
+    lineHeight: 22,
+  },
+
 });
 
 export default Home;

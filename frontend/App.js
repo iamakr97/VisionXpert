@@ -29,7 +29,7 @@ const HomeStack = () => (
     <Stack.Screen name="ObjectDetection" component={ObjectDetection} />
     <Stack.Screen name="RoseDisease" component={RoseDisease} />
     <Stack.Screen name="FishDisease" component={FishDisease} />
-    <Stack.Screen name="BeeClassificaion" component={BeeClassification} />
+    <Stack.Screen name="BeeClassification" component={BeeClassification} />
   </Stack.Navigator>
 );
 
